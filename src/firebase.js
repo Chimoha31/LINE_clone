@@ -1,4 +1,6 @@
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyB36UaGhFQvUqmjaHDyfrivhRjVOKIURoY",
@@ -8,3 +10,9 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: "216938604796",
   appId: "1:216938604796:web:f3b9d575940007e4fecf79"
 });
+
+const db = firebaseApp.firestore();
+// どのUserがログインしているのか = auth
+const auth = firebase.auth();
+
+export {db, auth};
