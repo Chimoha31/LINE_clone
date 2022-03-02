@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {db, auth} from '../firebase';
 import firebase from 'firebase/compat/app';
+import { Input } from "@mui/material";
 
 // inputに入れたtextをuseState()の変数messageに入れ、それをfirestoreのdatabaseに保存していくという処理
 function SendMessage() {
@@ -21,16 +22,19 @@ function SendMessage() {
       uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(), //enter keyを押した時間が取得できる
     });
+
+    setMessage("");
   }
 
   return (
     <div>
       <form onSubmit={sendMessage}>
         <div class="sendMsg">
-          <input
+          <Input
             placeholder="type message here"
             type="text"
             onChange={(e) => setMessage(e.target.value)}
+            value={message}
           />
         </div>
       </form>
