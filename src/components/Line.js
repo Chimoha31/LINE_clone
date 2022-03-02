@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SignOut from './SignOut';
+import SendMessage from './SendMessage';
 import {db} from "../firebase";
 
 function Line() {
